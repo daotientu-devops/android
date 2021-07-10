@@ -1,0 +1,44 @@
+<resources>
+    <string name="hello_world">Hello world!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <color name="opaque_red">#f00</color>
+    <string name="dialog_message">Welcome to Alert Dialog</string>
+    <string name="dialog_title">Javapoint Alert Dialog</string>
+    <string name="app_name">ListView</string>
+    <string-array name="array_technology">
+        <item>Android</item>
+        <item>Java</item>
+        <item>PHP</item>
+        <item>Hadoop</item>
+        <item>Sap</item>
+        <item>Python</item>
+        <item>Ajax</item>
+        <item>C++</item>
+        <item>Ruby</item>
+        <item>Rails</item>
+        <item>.Net</item>
+        <item>Perl</item>
+    </string-array>
+    <string name="Add_New">Add New</string>
+    <string name="edit">Edit Contact</string>
+    <string name="delete">Delete Contact</string>
+    <string name="title_activity_display_contact">DisplayContact</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+    <string name="street">Street</string>
+    <string name="country">City/State/Zip</string>
+    <string name="save">Save Contact</string>
+    <string name="deleteContact">Are you sure, you want to delete it.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
