@@ -1,7 +1,5 @@
 package com.example.helloworld;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,8 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 // Model
-public class DisplayContact extends Activity {
+public class DisplayContact extends AppCompatActivity {
     private DBHelper mydb;
     TextView name;
     TextView phone;

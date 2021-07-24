@@ -1,16 +1,16 @@
 package com.example.helloworld;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-public class SecondActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SecondActivity extends AppCompatActivity {
     EditText editText1;
     Button button1;
     protected void onCreate(Bundle savedInstanceState) {

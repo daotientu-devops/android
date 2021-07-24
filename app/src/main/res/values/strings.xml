@@ -41,4 +41,7 @@
     <string name="deleteContact">Are you sure, you want to delete it.</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="y_l_m_t_textview">Đây là một TextView</string>
+    <string name="nh_p_d_ng_ch">Nhập dòng chữ</string>
+    <string name="textviewcontent">TextView Demo</string>
 </resources>
