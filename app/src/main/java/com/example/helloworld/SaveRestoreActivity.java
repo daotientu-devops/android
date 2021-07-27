@@ -34,6 +34,14 @@ public class SaveRestoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitvity_save_restore);
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SaveRestoreActivity.this, "Hi!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         String htmlcontent = "<h1>Đây là HTML</h1><ul><li>Thẻ UL/LI</li><li>Thẻ UL/LI</li></ul>" +
                 "<p>Dòng <font color=\"red\">chữ</font> trong <big><b>thẻ p</b></big><p>" +
                 "<a href=\"...\">Bấm vào link</a>" +

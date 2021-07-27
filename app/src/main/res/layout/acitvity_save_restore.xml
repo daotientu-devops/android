@@ -6,6 +6,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="MissingClass">
+    <Button
+        android:id="@+id/mybutton_id"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:background="#d50000"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:background="#9c27b0"
+        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintTop_toBottomOf="@+id/mybutton_id"/>
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:backgroundTint="#311b92"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:backgroundTint="#00acc1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:backgroundTint="#00c853"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:backgroundTint="#ffd600"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="Xin chào"
+        android:backgroundTint="#000000"
+        style="@style/Widget.AppCompat.Button.Colored"
+        tools:ignore="MissingConstraints" />
     <TextView
         android:id="@+id/textview"
         android:layout_width="wrap_content"
@@ -29,7 +79,6 @@
         android:textSize="16dp"
         android:textStyle="bold"
         android:fontFamily="serif-monospace"
-
         tools:visibility="visible" />
     <ImageView
         android:id="@+id/imageview"
@@ -58,6 +107,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Button"
+        android:drawableLeft="@drawable/button_left_right"
+        android:drawableRight="@drawable/button_left_right"
+        android:drawableTop="@drawable/button_top_bottom"
+        android:drawableBottom="@drawable/button_top_bottom"
+        android:background="@drawable/button_3state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <ImageButton
