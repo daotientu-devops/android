@@ -19,6 +19,8 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +32,16 @@ public class SaveRestoreActivity extends AppCompatActivity {
     private int mLession = 1; // Lưu tên bài hiện tại
     TextView message;
     Button button;
+
+    CheckBox int_id, double_id, string_id, all;
+    Button test, hint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitvity_save_restore);
+        init();
+
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,5 +103,75 @@ public class SaveRestoreActivity extends AppCompatActivity {
     void setLession()
     {
         message.setText("Bai hoc: " + mLession);
+    }
+
+    CompoundButton.OnCheckedChangeListener m_listener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            if (compoundButton == all)
+            {
+                detachListener();
+                int_id.setEnabled(!b);
+                double_id.setEnabled(!b);
+                string_id.setEnabled(!b);
+                int_id.setChecked(b);
+                double_id.setChecked(b);
+                string_id.setChecked(b);
+                attachListener();
+            } else {
+                Toast.makeText(compoundButton.getContext(), compoundButton.getText() + " | " + compoundButton.isChecked(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    // Gán listener vào checkbox
+    void attachListener()
+    {
+        int_id.setOnCheckedChangeListener(m_listener);
+        double_id.setOnCheckedChangeListener(m_listener);
+        string_id.setOnCheckedChangeListener(m_listener);
+        all.setOnCheckedChangeListener(m_listener);
+    }
+
+    // Bỏ các listener khỏi checkbox
+    void detachListener()
+    {
+        int_id.setOnCheckedChangeListener(null);
+        double_id.setOnCheckedChangeListener(null);
+        string_id.setOnCheckedChangeListener(null);
+        all.setOnCheckedChangeListener(null);
+    }
+
+    public void init()
+    {
+        int_id = findViewById(R.id.int_id);
+        double_id = findViewById(R.id.double_id);
+        string_id = findViewById(R.id.string_id);
+        all = findViewById(R.id.all);
+        attachListener();
+        test = findViewById(R.id.test);
+        hint = findViewById(R.id.hint);
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                detachListener();
+                int_id.setChecked(false);
+                double_id.setChecked(false);
+                string_id.setChecked(true);
+                all.setChecked(false);
+                attachListener();
+            }
+        });
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msg = "";
+                if (!int_id.isChecked() && !double_id.isChecked() && string_id.isChecked())
+                    msg = "Đúng, chúc mừng";
+                else
+                    msg = "Sai rồi";
+                Toast.makeText(v.getContext(), msg, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

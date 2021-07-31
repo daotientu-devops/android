@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="MissingClass">
+    android:orientation="vertical"
+    android:padding="5dp">
+    <TextView android:text="Loại biến nào có thể dùng cho tên một thành phố?" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <CheckBox android:button="@drawable/checkbox_custome" android:id="@+id/int_id" android:text="int" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:button="@drawable/checkbox_custome" android:id="@+id/double_id" android:text="double" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:button="@drawable/checkbox_custome" android:id="@+id/string_id" android:text="String" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:button="@drawable/checkbox_custome" android:id="@+id/all" android:text="Tất cả các phương án" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <Button android:id="@+id/test" android:text="Kết quả" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <Button android:id="@+id/hint" android:text="Gợi ý" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/mybutton_id"
         android:layout_width="220dp"
@@ -123,4 +132,4 @@
         android:src="@drawable/ic_menu_camera"
         android:layout_width="100dp"
         android:layout_height="50dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
