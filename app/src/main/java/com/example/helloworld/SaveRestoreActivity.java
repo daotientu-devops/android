@@ -23,6 +23,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,8 +41,28 @@ public class SaveRestoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitvity_save_restore);
-        init();
 
+        ToggleButton toggleButton1 = findViewById(R.id.toggle1);
+        ToggleButton toggleButton2 = findViewById(R.id.toggle2);
+        toggleButton1.setChecked(false);
+        toggleButton2.setChecked(true);
+        CompoundButton.OnCheckedChangeListener listener = new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                switch (compoundButton.getId()) {
+                    case R.id.toggle1:
+                        Toast.makeText(SaveRestoreActivity.this, "Nút 1: " + compoundButton.isChecked(), Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.toggle2:
+                        Toast.makeText(SaveRestoreActivity.this, "Nút 2: " + compoundButton.isChecked(), Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        };
+        toggleButton1.setOnCheckedChangeListener(listener);
+        toggleButton2.setOnCheckedChangeListener(listener);
+
+        init();
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +70,6 @@ public class SaveRestoreActivity extends AppCompatActivity {
                 Toast.makeText(SaveRestoreActivity.this, "Hi!", Toast.LENGTH_SHORT).show();
             }
         });
-
         String htmlcontent = "<h1>Đây là HTML</h1><ul><li>Thẻ UL/LI</li><li>Thẻ UL/LI</li></ul>" +
                 "<p>Dòng <font color=\"red\">chữ</font> trong <big><b>thẻ p</b></big><p>" +
                 "<a href=\"...\">Bấm vào link</a>" +
@@ -98,13 +118,11 @@ public class SaveRestoreActivity extends AppCompatActivity {
         mytextview.setMovementMethod(LinkMovementMethod.getInstance());
         mytextview.setText(noidungspanned);
     }
-
     // Hiện thị dòng chữ tên bài hiện tại
     void setLession()
     {
         message.setText("Bai hoc: " + mLession);
     }
-
     CompoundButton.OnCheckedChangeListener m_listener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -123,7 +141,6 @@ public class SaveRestoreActivity extends AppCompatActivity {
             }
         }
     };
-
     // Gán listener vào checkbox
     void attachListener()
     {
@@ -132,7 +149,6 @@ public class SaveRestoreActivity extends AppCompatActivity {
         string_id.setOnCheckedChangeListener(m_listener);
         all.setOnCheckedChangeListener(m_listener);
     }
-
     // Bỏ các listener khỏi checkbox
     void detachListener()
     {
@@ -141,7 +157,6 @@ public class SaveRestoreActivity extends AppCompatActivity {
         string_id.setOnCheckedChangeListener(null);
         all.setOnCheckedChangeListener(null);
     }
-
     public void init()
     {
         int_id = findViewById(R.id.int_id);

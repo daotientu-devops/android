@@ -7,6 +7,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp">
+    <ToggleButton
+        android:id="@+id/toggle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textOff="Tắt"
+        android:textOn="Bật"
+        android:background="@drawable/toggle_custom"
+        />
+    <ToggleButton
+        android:id="@+id/toggle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:textOff="No"
+        android:textOn="Yes"
+        android:background="@drawable/toggle_custom"
+        />
     <TextView android:text="Loại biến nào có thể dùng cho tên một thành phố?" android:layout_width="match_parent" android:layout_height="wrap_content"/>
     <CheckBox android:button="@drawable/checkbox_custome" android:id="@+id/int_id" android:text="int" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <CheckBox android:button="@drawable/checkbox_custome" android:id="@+id/double_id" android:text="double" android:layout_width="wrap_content" android:layout_height="wrap_content" />
