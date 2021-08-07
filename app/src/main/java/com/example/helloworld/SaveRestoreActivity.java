@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -37,10 +38,39 @@ public class SaveRestoreActivity extends AppCompatActivity {
     CheckBox int_id, double_id, string_id, all;
     Button test, hint;
 
+    RadioButton r_a, r_b, r_c;
+    Button test_0;
+    TextView mgs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitvity_save_restore);
+
+        r_a = findViewById(R.id.radio_a);
+        r_b = findViewById(R.id.radio_b);
+        r_c = findViewById(R.id.radio_c);
+
+        r_a.setOnCheckedChangeListener(listenerRadio);
+        r_b.setOnCheckedChangeListener(listenerRadio);
+        r_c.setOnCheckedChangeListener(listenerRadio);
+
+        test_0 = findViewById(R.id.test_0);
+        mgs = findViewById(R.id.mgs);
+
+        test_0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (r_b.isChecked())
+                {
+                    mgs.setText("Đúng rồi");
+                }
+                else
+                {
+                    mgs.setText("Sai");
+                }
+            }
+        });
 
         ToggleButton toggleButton1 = findViewById(R.id.toggle1);
         ToggleButton toggleButton2 = findViewById(R.id.toggle2);
@@ -118,6 +148,16 @@ public class SaveRestoreActivity extends AppCompatActivity {
         mytextview.setMovementMethod(LinkMovementMethod.getInstance());
         mytextview.setText(noidungspanned);
     }
+
+    CompoundButton.OnCheckedChangeListener listenerRadio = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            test_0.setEnabled(true);
+            if (isChecked) {
+                mgs.setText("Bạn chọn:" + compoundButton.getText());
+            }
+        }
+    };
     // Hiện thị dòng chữ tên bài hiện tại
     void setLession()
     {
