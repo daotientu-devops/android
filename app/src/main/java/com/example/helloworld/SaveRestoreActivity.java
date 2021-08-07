@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
 import android.text.SpannableString;
@@ -22,11 +23,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -42,10 +45,16 @@ public class SaveRestoreActivity extends AppCompatActivity {
     Button test_0;
     TextView mgs;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitvity_save_restore);
+
+        TextClock textClock = findViewById(R.id.textclock);
+        String formatdate = "E, d-M-yyyy k:m:sa";
+        textClock.setFormat12Hour(formatdate);
+        textClock.setFormat24Hour(formatdate);
 
         r_a = findViewById(R.id.radio_a);
         r_b = findViewById(R.id.radio_b);
