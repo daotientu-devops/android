@@ -1,23 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="120dp"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center"
+            android:textColor="#a72b2b"
+            />
+        <Button
+            android:id="@+id/btn_center"
+            android:text="center"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_centerCrop"
+            android:text="centerCrop"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_centerInside"
+            android:text="centerInside"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_fitCenter"
+            android:text="fitCenter"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_fitEnd"
+            android:text="fitEnd"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_fitStart"
+            android:text="fitStart"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_fitXY"
+            android:text="fitXY"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:id="@+id/imagebutton"
+            android:background="@drawable/ps__button_instagram"
+            android:src="@drawable/subscribe_button_with_icon_youtube"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="USERNAME"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="12dp"
-        android:id="@+id/textView"
-        android:textSize="18sp"
-        android:textStyle="bold|italic"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center"
-        />
-</RelativeLayout>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        android:background="#ec000000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/butterfly" />
+</LinearLayout>

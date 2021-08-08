@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
         <activity
-            android:name=".SaveRestoreActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.HelloWorld.NoActionBar">
             <intent-filter>
