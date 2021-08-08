@@ -4,8 +4,10 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Layout;
 import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
@@ -19,6 +21,8 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -33,6 +37,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class SaveRestoreActivity extends AppCompatActivity {
     private int mLession = 1; // Lưu tên bài hiện tại
     TextView message;
@@ -45,11 +52,47 @@ public class SaveRestoreActivity extends AppCompatActivity {
     Button test_0;
     TextView mgs;
 
+    TextInputEditText editText;
+    TextInputLayout usernameWrapper;
+
+    // Mảng dữ liệu từ gợi ý - auto suggest (string) (**) Chỉ suggest từ có chữ cái đầu tiên giống với ký tự nhập đầu tiên
+    private static final String[] PRODUCTS = new String[]
+    {
+        "Điện thoại XY",
+        "Máy tính AZ",
+        "Iphone", "Tai nghe", "Loa"
+    };
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acitvity_save_restore);
+        AutoCompleteTextView textView = findViewById(R.id.product);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, PRODUCTS);
+        textView.setAdapter(adapter);
+        editText = findViewById(R.id.username);
+        usernameWrapper = findViewById(R.id.usernameWrapper);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0) {
+                    usernameWrapper.setError("Bạn bắt buộc phải nhập username");
+                } else {
+                    usernameWrapper.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         TextClock textClock = findViewById(R.id.textclock);
         String formatdate = "E, d-M-yyyy k:m:sa";
