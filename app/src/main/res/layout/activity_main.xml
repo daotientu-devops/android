@@ -1,83 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:orientation="horizontal"
-    tools:context=".MainActivity">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="120dp"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:gravity="center"
-            android:textColor="#a72b2b"
-            />
-        <Button
-            android:id="@+id/btn_center"
-            android:text="center"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_centerCrop"
-            android:text="centerCrop"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_centerInside"
-            android:text="centerInside"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_fitCenter"
-            android:text="fitCenter"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_fitEnd"
-            android:text="fitEnd"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_fitStart"
-            android:text="fitStart"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_fitXY"
-            android:text="fitXY"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ImageButton
-            android:id="@+id/imagebutton"
-            android:background="@drawable/ps__button_instagram"
-            android:src="@drawable/subscribe_button_with_icon_youtube"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Ảnh kín FrameLayout -->
     <ImageView
-        android:id="@+id/image"
+        android:src="@drawable/butterfly"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_height="match_parent"/>
+    <!-- Button ở giữa, bên phải và cách mép phải FrameLayout 20dp -->
+    <Button
+        android:layout_gravity="center|right"
+        android:layout_marginRight="20dp"
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- Ảnh ở giữa, bên dưới FrameLayout -->
+    <ImageView
+        android:layout_gravity="center|bottom"
+        android:src="@drawable/subscribe_button_with_icon_youtube"
         android:adjustViewBounds="true"
-        android:background="#ec000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/butterfly" />
-</LinearLayout>
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"/>
+    <!-- Dòng chữ ở giữa, phần trên FrameLayout -->
+    <TextView
+        android:layout_gravity="center|top"
+        android:layout_marginTop="10dp"
+        android:text="Đây là 1 TextView"
+        android:layout_width="100dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+</FrameLayout>
