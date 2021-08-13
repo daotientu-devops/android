@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="10dp"
+<LinearLayout android:orientation="vertical"
+    android:gravity="left"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- Ảnh kín FrameLayout -->
-    <ImageView
-        android:src="@drawable/butterfly"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-    <!-- Button ở giữa, bên phải và cách mép phải FrameLayout 20dp -->
+    android:layout_height="match_parent"
+    android:background="#a6dfdfdf"
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <Button
-        android:layout_gravity="center|right"
-        android:layout_marginRight="20dp"
-        android:text="Button"
+        android:backgroundTint="#dc9e1a"
+        android:text="B1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"/>
+    <Button
+        android:backgroundTint="#00c853"
+        android:text="B1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <!-- Ảnh ở giữa, bên dưới FrameLayout -->
-    <ImageView
-        android:layout_gravity="center|bottom"
-        android:src="@drawable/subscribe_button_with_icon_youtube"
-        android:adjustViewBounds="true"
-        android:layout_width="150dp"
+    <Button
+        android:backgroundTint="#141ba9"
+        android:text="B1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        />
+    <Button
+        android:backgroundTint="#dc1a8b"
+        android:text="B1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <!-- Dòng chữ ở giữa, phần trên FrameLayout -->
-    <TextView
-        android:layout_gravity="center|top"
-        android:layout_marginTop="10dp"
-        android:text="Đây là 1 TextView"
-        android:layout_width="100dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"/>
-</FrameLayout>
+</LinearLayout>
