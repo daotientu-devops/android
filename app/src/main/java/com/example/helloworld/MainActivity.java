@@ -41,19 +41,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Khởi tạo ListProduct
-        listProduct = new ArrayList<>();
-        listProduct.add(new Product(1, "Iphone 6", 500));
-        listProduct.add(new Product(1, "Iphone 7", 700));
-        listProduct.add(new Product(1, "Sony Abc", 800));
-        listProduct.add(new Product(1, "Samsung XYZ", 900));
-        listProduct.add(new Product(1, "SP 5", 500));
-        listProduct.add(new Product(1, "SP 6", 700));
-        listProduct.add(new Product(1, "SP 7", 800));
-        listProduct.add(new Product(1, "SP 8", 900));
-        productListViewAdapter = new ProductListViewAdapter(listProduct);
-        listViewProduct = findViewById(R.id.listproduct);
-        listViewProduct.setAdapter(productListViewAdapter);
+
     }
 
     public void run(View view) {

@@ -1,42 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical"
-    android:gravity="left"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#a6dfdfdf"
-    android:layout_margin="10dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView
-        android:id="@+id/listproduct"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <Button
-        android:id="@+id/delete"
+    tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Xóa sản phẩm đầu tiên"/>
-    <Button
-        android:backgroundTint="#dc9e1a"
-        android:text="B1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"/>
-    <Button
-        android:backgroundTint="#00c853"
-        android:text="B1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <Button
-        android:backgroundTint="#141ba9"
-        android:text="B1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="bottom|center"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintDimensionRatio="2:1"
         />
     <Button
-        android:backgroundTint="#dc1a8b"
-        android:text="B1"
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#1eb729"
+        android:text="B1 - HEAD"
+        app:layout_constraintBottom_toTopOf="@id/b5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="@id/b2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/b4" />
+    <Button
+        android:id="@+id/b2"
+        android:text="B2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/b1"
+        app:layout_constraintRight_toLeftOf="@id/b3"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/b3"
+        android:text="B3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/b2"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/b4"
+        android:text="B4- HEAD"
+        android:textColor="#cf3131"
+        app:layout_constraintBottom_toTopOf="@id/b1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/b1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-</LinearLayout>
+    <Button
+        android:id="@+id/b5"
+        android:text="B5"
+        app:layout_constraintTop_toBottomOf="@id/b1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
