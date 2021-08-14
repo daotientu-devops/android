@@ -1,36 +1,22 @@
 package com.example.helloworld;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String msg = "Android ";
@@ -47,10 +33,27 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     TextView textView;
 
+    ArrayList<Product> listProduct;
+    ProductListViewAdapter productListViewAdapter;
+    ListView listViewProduct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Khởi tạo ListProduct
+        listProduct = new ArrayList<>();
+        listProduct.add(new Product(1, "Iphone 6", 500));
+        listProduct.add(new Product(1, "Iphone 7", 700));
+        listProduct.add(new Product(1, "Sony Abc", 800));
+        listProduct.add(new Product(1, "Samsung XYZ", 900));
+        listProduct.add(new Product(1, "SP 5", 500));
+        listProduct.add(new Product(1, "SP 6", 700));
+        listProduct.add(new Product(1, "SP 7", 800));
+        listProduct.add(new Product(1, "SP 8", 900));
+        productListViewAdapter = new ProductListViewAdapter(listProduct);
+        listViewProduct = findViewById(R.id.listproduct);
+        listViewProduct.setAdapter(productListViewAdapter);
     }
 
     public void run(View view) {
@@ -157,5 +160,50 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d(msg, "The onDestroy() event");
+    }
+}
+
+class ProductListViewAdapter extends BaseAdapter {
+    // Dữ liệu liên kết bởi Adapter là một mảng các sản phẩm
+    final ArrayList<Product> listProduct;
+    public ProductListViewAdapter(ArrayList<Product> listProduct) {
+        this.listProduct = listProduct;
+    }
+
+    @Override
+    public int getCount() {
+        // Trả về tổng số phần tử, nó được gọi bởi ListView
+        return listProduct.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        // Trả về dữ liệu ở vị trí position của Adapter, tương ứng là phần tử
+        // có chỉ số position trong listProduct
+        return listProduct.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        // Trả về một ID của phần
+        return listProduct.get(position).productID;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // convertView là View của phần tử ListView, nếu convertView != null nghĩa là
+        // View này được sử dụng lại, chỉ việc cập nhật nội dung mới
+        // Nếu null cần tạo mới
+        View viewProduct;
+        if (convertView == null) {
+            viewProduct = View.inflate(parent.getContext(), R.layout.product_view, null);
+        } else
+            viewProduct = convertView;
+        // Bind dữ liệu phần tử vào View
+        Product product = (Product) getItem(position);
+        ((TextView) viewProduct.findViewById(R.id.idproduct)).setText(String.format("ID = %d", product.productID));
+        ((TextView) viewProduct.findViewById(R.id.nameproduct)).setText(String.format("Tên SP: %s", product.name));
+        ((TextView) viewProduct.findViewById(R.id.priceproduct)).setText(String.format("Giá: %d$", product.price));
+        return viewProduct;
     }
 }

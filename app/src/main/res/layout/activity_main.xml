@@ -6,6 +6,16 @@
     android:background="#a6dfdfdf"
     android:layout_margin="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView
+        android:id="@+id/listproduct"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xóa sản phẩm đầu tiên"/>
     <Button
         android:backgroundTint="#dc9e1a"
         android:text="B1"
