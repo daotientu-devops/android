@@ -1,63 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="1"
-    android:shrinkColumns="0"
-    >
-    <TableRow>
-        <TextView
-            android:text="TableLayout Example"
-            android:background="#c98282"
-            android:layout_span="3"
-            android:gravity="center"/>
-    </TableRow>
-    <TableRow>
-        <Button android:text="B1 B1" android:layout_column="1"/>
-        <Button android:text="B2"/>
-    </TableRow>
-    <Button android:text="Single Row"
-        style="@style/Widget.AppCompat.Button.Colored"/>
-    <TableRow>
-        <Button android:text="C1"/>
-        <Button android:text="C2" android:layout_column="2"/>
-        <Button android:text="C3"/>
-    </TableRow>
-    <TableRow>
-        <TextView
-            android:text="ĐĂNG NHẬP"
-            android:layout_span="2"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:gravity="center"/>
-    </TableRow>
-    <TableRow>
-        <TextView android:text="Username" android:textStyle="bold"/>
-        <EditText android:hint="Nhập id"/>
-    </TableRow>
-    <TableRow>
-        <TextView android:text="Password" android:textStyle="bold"/>
-        <EditText android:hint="Nhập mật khẩu"/>
-    </TableRow>
-    <LinearLayout
+    android:layout_margin="8dp"
+    android:gravity="center|right"
+    android:ignoreGravity="@id/textview"
+    android:background="#e2e3eb">
+    <TextView
+        android:id="@+id/textview1"
+        android:text="Đăng nhập"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textAllCaps="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/username"
+        android:hint="Username"
+        android:layout_below="@id/textview1"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/password"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/username"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_below="@id/password"
+        android:layout_toLeftOf="@id/recoverypassword"
+        android:text="Đăng nhập"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/recoverypassword"
+        android:layout_below="@id/password"
+        android:layout_centerHorizontal="true"
+        android:text="Quên MK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/help"
+        android:layout_below="@id/password"
+        android:layout_toRightOf="@id/recoverypassword"
+        android:text="Trợ giúp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/textview"
+        android:text="Example RelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/view1"
+        android:text="view1"
         android:gravity="center"
-        android:orientation="horizontal">
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:text="OK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:backgroundTint="#291010"
-            android:text="Hủy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:backgroundTint="#291010"
-            android:text="Quên MK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-</TableLayout>
+        android:layout_toLeftOf="@id/view3"
+        android:layout_alignBottom="@id/view3"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="#e8d33636"/>
+    <TextView
+        android:id="@+id/view2"
+        android:text="view2"
+        android:gravity="center"
+        android:layout_alignRight="@id/view1"
+        android:layout_above="@id/view1"
+        android:layout_width="50dp"
+        android:layout_height="200dp"
+        android:background="#e71faf15"/>
+    <TextView
+        android:id="@+id/view3"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:text="view3"
+        android:gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#d4a00f8f"/>
+</RelativeLayout>
