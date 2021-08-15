@@ -1,75 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="10dp"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintDimensionRatio="2:1"
-        />
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:textColor="#1eb729"
-        android:text="B1 - HEAD"
-        app:layout_constraintBottom_toTopOf="@id/b5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintRight_toLeftOf="@id/b2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintVertical_weight="2"
-        app:layout_constraintTop_toBottomOf="@id/b4" />
-    <Button
-        android:id="@+id/b2"
-        android:text="B2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/b1"
-        app:layout_constraintRight_toLeftOf="@id/b3"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <Button
-        android:id="@+id/b3"
-        android:text="B3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintLeft_toRightOf="@id/b2"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <Button
-        android:id="@+id/b4"
-        android:text="B4- HEAD"
-        app:layout_constraintVertical_chainStyle="spread_inside"
-        android:textColor="#cf3131"
-        app:layout_constraintBottom_toTopOf="@id/b1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/b1"
-        app:layout_constraintVertical_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"/>
-    <Button
-        android:id="@+id/b5"
-        android:text="B5"
-        app:layout_constraintTop_toBottomOf="@id/b1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/b1"
-        android:layout_width="wrap_content"
-        android:layout_height="0px"
-        app:layout_constraintVertical_weight="3" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:stretchColumns="1"
+    android:shrinkColumns="0"
+    >
+    <TableRow>
+        <TextView
+            android:text="TableLayout Example"
+            android:background="#c98282"
+            android:layout_span="3"
+            android:gravity="center"/>
+    </TableRow>
+    <TableRow>
+        <Button android:text="B1 B1" android:layout_column="1"/>
+        <Button android:text="B2"/>
+    </TableRow>
+    <Button android:text="Single Row"
+        style="@style/Widget.AppCompat.Button.Colored"/>
+    <TableRow>
+        <Button android:text="C1"/>
+        <Button android:text="C2" android:layout_column="2"/>
+        <Button android:text="C3"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="ĐĂNG NHẬP"
+            android:layout_span="2"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="Username" android:textStyle="bold"/>
+        <EditText android:hint="Nhập id"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:text="Password" android:textStyle="bold"/>
+        <EditText android:hint="Nhập mật khẩu"/>
+    </TableRow>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="OK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:backgroundTint="#291010"
+            android:text="Hủy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:backgroundTint="#291010"
+            android:text="Quên MK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</TableLayout>
