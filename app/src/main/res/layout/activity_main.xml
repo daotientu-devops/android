@@ -14,13 +14,60 @@
         android:text="BLOCK1"
         android:gravity="right"
         android:background="#e65100"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:toolbarId="@+id/toolbar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/forest"
+                app:layout_collapseMode="parallax"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:titleTextColor="@android:color/white"
+                app:layout_scrollFlags="scroll|enterAlways"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
+        android:id="@+id/mainlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="160dp"
         android:background="#1db182"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_anchorGravity="bottom">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:id="@+id/mylistview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_orange_light"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:id="@+id/mylistview_2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_dark"/>
     </LinearLayout>
     <TextView
         android:id="@+id/txtTest"
@@ -30,6 +77,44 @@
         android:background="@android:color/holo_green_dark"
         android:padding="10dp"
         android:text="This is a TextView in CoordinatorLayout"
-        app:layout_anchor="@+id/frID"
-        app:layout_anchorGravity="left|top"/>
+        app:layout_anchor="@+id/mainlayout"
+        app:layout_anchorGravity="left|bottom"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/icon_new"
+        android:tint="#d6bed1"
+        app:layout_anchorGravity="bottom|right|end"
+        />
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:clipToPadding="true"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="30dp"
+        android:background="@android:color/holo_purple"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Bottom sheets can be dismissed by swiping
+the bottom sheet down, by touching an
+explicit control such as an X in the
+app bar, or by touching the system back
+button (Android). Modal bottom sheets
+can also be dismissed by touching outside
+of the bottom sheet.
+Dismiss by swiping
+the bottom sheet down"
+                android:padding="16dp"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
