@@ -18,6 +18,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -49,36 +51,49 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab3;
     private boolean isFABOpen;
 
+    RecyclerView recyclerView;
+    StudentAdapter adapter;
+    ArrayList<Student> students;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.fab = (FloatingActionButton)findViewById(R.id.fab);
-        this.fab1 = (FloatingActionButton)findViewById(R.id.fab1);
-        this.fab2 = (FloatingActionButton)findViewById(R.id.fab2);
-        this.fab3 = (FloatingActionButton)findViewById(R.id.fab3);
-        this.fab.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if (!isFABOpen) {
-                    showFABMenu();
-                } else {
-                    closeFABMenu();
-                }
-            }
-        });
+        recyclerView = findViewById(R.id.studentsList);
+
+        students = new ArrayList<Student>();
+        //Tự phát sinh 50 dữ liệu mẫu
+        for (int i = 1; i <= 50; i++) {
+            students.add(new Student("Student Name" + i, 1995 + (i % 2)));
+        }
+
+        adapter = new StudentAdapter(students, this);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
     }
-    private void showFABMenu() {
-        isFABOpen = true;
-        fab1.animate().translationY(-getResources().getDimension(R.dimen.standard_55));
-        fab2.animate().translationY(-getResources().getDimension(R.dimen.standard_105));
-        fab3.animate().translationY(-getResources().getDimension(R.dimen.standard_155));
-    }
-    private void closeFABMenu() {
-        isFABOpen = false;
-        fab1.animate().translationY(0);
-        fab2.animate().translationY(0);
-        fab3.animate().translationY(0);
+    // Model
+    public static class Student {
+        private String mName;
+        private int birthYear;
+        public Student(String mName, int birthYear) {
+            this.mName = mName;
+            this.birthYear = birthYear;
+        }
+        public void setmName(String mName) {
+            this.mName = mName;
+        }
+        public String getmName() {
+            return mName;
+        }
+        public void setBirthYear(int birthYear) {
+            this.birthYear = birthYear;
+        }
+        public int getBirthYear() {
+            return birthYear;
+        }
     }
 
     public void run(View view) {
