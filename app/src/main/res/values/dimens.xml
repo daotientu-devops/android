@@ -8,4 +8,6 @@
     <dimen name="standard_55">255dp</dimen>
     <dimen name="standard_105">2105dp</dimen>
     <dimen name="standard_155">2155dp</dimen>
+    <dimen name="mytextviewpadding">10dp</dimen>
+    <dimen name="mytextviewmargin">80dp</dimen>
 </resources>

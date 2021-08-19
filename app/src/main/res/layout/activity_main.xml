@@ -71,11 +71,8 @@
     </LinearLayout>
     <TextView
         android:id="@+id/txtTest"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="25dp"
+        style="@style/mytextviewstyle"
         android:background="@android:color/holo_green_dark"
-        android:padding="10dp"
         android:text="This is a TextView in CoordinatorLayout"
         app:layout_anchor="@+id/mainlayout"
         app:layout_anchorGravity="left|bottom"/>
