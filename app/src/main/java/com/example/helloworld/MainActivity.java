@@ -1,6 +1,9 @@
 package com.example.helloworld;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,6 +55,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bottomSheetBehavior.setBottomSheetCallback(bottomSheetCallback);
+        /**
+         * Tạo ra 1 Broadcast Intent sau đó gửi đi (lan truyền) trong ứng dụng
+         * Action ==> Intent ==> Send broadcast
+         */
+        String actionName = "my-first-broadcastintent";
+        Intent intent = new Intent(actionName);
+        // Thiết lập tên để cho Receiver nhận được thì biết đó là loại Intent
+        intent.setAction(actionName);
+        // Dữ liệu gắn vào Intent thiết lập bằng putExtra với định dạng (tên, dữ liệu)
+        // Dữ liệu là các kiểu cơ bản Int, String, ... hoặc các loại đối tượng lớp kế thừa từ serializable
+        intent.putExtra("dataname", "Hello, How are you?");
+        // Thực hiện lan truyền Intent trong hệ thống
+        sendBroadcast(intent);
     }
     BottomSheetBehavior.BottomSheetCallback bottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() {
         @Override
