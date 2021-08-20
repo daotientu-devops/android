@@ -13,7 +13,7 @@
     <color name="opaque_red">#f00</color>
     <string name="dialog_message">Welcome to Alert Dialog</string>
     <string name="dialog_title">Javapoint Alert Dialog</string>
-    <string name="app_name">ListView</string>
+    <string name="app_name">Theme</string>
     <string-array name="array_technology">
         <item>Android</item>
         <item>Java</item>

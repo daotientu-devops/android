@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     TextView txtTest;
     CoordinatorLayout.LayoutParams txtTestLayout;
+    int themeIdCurrent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +70,26 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("dataname", "Hello, How are you?");
         // Thực hiện lan truyền Intent trong hệ thống
         sendBroadcast(intent);
+
+        // Đọc ID theme đã lưu, nếu chưa lưu thì dùng R.style.MyAppTheme
+        SharedPreferences locationPref = getApplicationContext().getSharedPreferences("MainActivity", MODE_PRIVATE);
+        themeIdCurrent = locationPref.getInt("themeid", R.style.MyAppTheme);
+        // Thiết lập theme cho Activity
+        setTheme(themeIdCurrent);
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // chuyển đổi theme
+                themeIdCurrent = themeIdCurrent == R.style.MyAppTheme ? R.style.AppTheme : R.style.MyAppTheme;
+                // Lưu lại theme ID
+                SharedPreferences locationpref = getApplicationContext().getSharedPreferences("MainActivity", MODE_PRIVATE);
+                SharedPreferences.Editor spedit = locationpref.edit();
+                spedit.putInt("themeid", themeIdCurrent);
+                spedit.apply();
+                // Tạo lại activity để áp dụng theme mới đổi
+                recreate();
+            }
+        });
     }
     BottomSheetBehavior.BottomSheetCallback bottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() {
         @Override

@@ -76,6 +76,15 @@
         android:text="This is a TextView in CoordinatorLayout"
         app:layout_anchor="@+id/mainlayout"
         app:layout_anchorGravity="left|bottom"/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Change theme"
+        />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
