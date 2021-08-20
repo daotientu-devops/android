@@ -6,15 +6,20 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.OrientationEventListener;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -40,10 +45,20 @@ public class MainActivity extends AppCompatActivity {
     TextView txtTest;
     CoordinatorLayout.LayoutParams txtTestLayout;
     int themeIdCurrent;
+
+    Display display;
+    TextView huongmanhinh, gocnghieng;
+    OrientationEventListener myOrientationEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        huongmanhinh = findViewById(R.id.huongmanhinh);
+        gocnghieng = findViewById(R.id.gocnghieng);
+
+        InfoScreen();
+        ListenerRotate();
+
         BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.bottom_sheet));
         TextView txtTest = findViewById(R.id.txtTest);
         txtTest.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +105,35 @@ public class MainActivity extends AppCompatActivity {
                 recreate();
             }
         });
+    }
+    // Listener nhận sự kiện thay đổi góc nghiêng điện thoại
+    void ListenerRotate() {
+        myOrientationEventListener = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
+            @Override
+            public void onOrientationChanged(int orientation) {
+                gocnghieng.setText("Góc nghiêng: " + orientation + "o");
+                InfoScreen();
+            }
+        };
+        myOrientationEventListener.enable();
+    }
+    // Xác định màn hình PORTRAIT, LANDSCAPE
+    void InfoScreen() {
+        Display display = ((WindowManager)getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        switch (display.getRotation()) {
+            case Surface.ROTATION_0:
+                huongmanhinh.setText("Màn hình LAYOUT đứng: 0o");
+                break;
+            case Surface.ROTATION_90:
+                huongmanhinh.setText("Màn hình LAYOUT ngang: 90o");
+                break;
+            case Surface.ROTATION_180:
+                huongmanhinh.setText("Màn hình LAYOUT ngang: 180o");
+                break;
+            case Surface.ROTATION_270:
+                huongmanhinh.setText("Màn hình LAYOUT đứng: 270o");
+                break;
+        }
     }
     BottomSheetBehavior.BottomSheetCallback bottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() {
         @Override
